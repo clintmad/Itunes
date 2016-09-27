@@ -38,13 +38,11 @@ function drawSongs(songList) {
     }
 }
 
-// function pauseSong(songList){
-// var newSong = document.getElementById('song')
-// var currentSong = song.preview;
-// if(currentSong && currentSong != newSong){
-//     currentSong.pause();
-// }
-// if(currentSong.paused){
-//     newSong.play();
-// }
-// }
+window.addEventListener("play", function(evt)
+{
+    if(window.$_currentlyPlaying && window.$_currentlyPlaying != evt.target)
+    {
+        window.$_currentlyPlaying.pause();
+    } 
+    window.$_currentlyPlaying = evt.target;
+}, true);
