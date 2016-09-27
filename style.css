@@ -1,0 +1,32 @@
+body{
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1024px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg');
+    background-size: 100% 100%;    
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position:center;
+}
+.art{
+    height:15%;
+}
+.card-white{
+  background:white;
+  padding:20px;
+  border-radius:4px;
+  margin: 10px;
+  box-shadow: 1px 1px 3px black;
+}
+.list{
+    margin-top: 150px
+}
+.form-inline{
+    margin:20px;
+}
+.intro{
+    font-family: 'Audiowide', cursive;
+    color:white;
+    font-size: 50px;
+}
+.navbar{
+    background: black;
+    border: solid black;
+}

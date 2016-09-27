@@ -6,22 +6,43 @@
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
     <script src="itunes-service.js"></script>
     <script src="app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <form class="form-inline">
-        <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
-        <div class="form-group">
-            <input type="text" class="form-control" id="artist" placeholder="Artist Name" />
-            <button type="button" class="btn btn-primary" id="get-music-button" onclick="getMusic()">Get Music</button>
-        </div>
-    </form>
-    <ul>
-        <div>
-            <div id="song">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="nav">
+                <div class="navbar-header">
+                    <h1 class="intro">Mad Music</h1>
+                </div>
+                <div class="nav navbar-right">
+                    <form class="form-inline text-center">
+                        <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="artist" placeholder="Artist Name" />
+                            <button type="button" class="btn btn-primary" id="get-music-button" onclick="getMusic()">Get Music</button>
+                        </div>
+                    </form>
+
+                </div>
+                
+
             </div>
         </div>
+    </nav>
+
+
+
+    </div>
+    <ul class="list">
+        <div>
+            <div id="song">
+                <h1></h1>
+            </div>
     </ul>
+
 </body>
 
 </html>
