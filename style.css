@@ -5,9 +5,7 @@ body{
     background-attachment:fixed;
     background-position:center;
 }
-.art{
-    height:15%;
-}
+
 .card-white{    
     background-color:transparent;
     padding:20px;
@@ -18,13 +16,10 @@ body{
 .card-white:hover{
     background-color: #e6f7ff;
     box-shadow: 0px 0px 150px #e6f7ff;
-    color: black;
-    
+    color: black;    
 }
 .list{
-    margin-top: 170px;
-    
-    
+    margin-top: 150px;      
 }
 .form-inline{
     margin:20px;
@@ -50,8 +45,7 @@ body{
 .intro{
     font-family: 'Audiowide', cursive;
     color:white;
-    font-size: 50px;
-    
+    font-size: 50px;    
 }
 .btn{
     background-color:transparent;
@@ -65,9 +59,9 @@ body{
     font-family: 'Exo', sans-serif;
     color:white;
 }
-
 .container{
     display:flex;
     justify-content:flex-center;
 }
+
 

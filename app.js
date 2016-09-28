@@ -13,7 +13,7 @@ function drawSongs(songList) {
                         <div class ="text-container">
                             <div class="row card-white">            
                                 <div class="col-xs-12 col-md-2">
-                                    <img class="art img-thumbnail" src="${song.albumArt}" alt=""/>
+                                    <img class="img-thumbnail" src="${song.albumArt}" alt=""/>
                                 </div>
                                 <div class="col-xs-12 col-md-5">
                                     <h3>${song.title}</h3>
