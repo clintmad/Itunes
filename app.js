@@ -21,7 +21,7 @@ function drawSongs(songList) {
                                     <p>Album: ${song.collection}</p>
                                 </div>
                             <div class="col-xs-12 col-md-4">                
-                                <audio controls>
+                                <audio controls preload="none">
                                     <source src="${song.preview}" type = ""/>
                                 </audio>
                             </div>
