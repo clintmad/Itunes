@@ -37,20 +37,6 @@ function MyTunes() {
         }
     }
 
-    this.sortByRating = function(myTracks){
-        debugger
-        return myTracks.sort(function (a, b){
-            if(a.rating > b.rating){
-                return -1
-            }
-            if(a.rating < b.rating){
-                return 1
-            }
-            if(a.rating == b.rating){
-                return 0
-            }
-        })
-    }
 
     this.promoteTrack = function (id) {
         debugger
@@ -69,13 +55,27 @@ function MyTunes() {
         for (var i = 0; i < myTracks.length; i++) {
             
             var worseSong = myTracks[i];
-            if (id == worseSong.id && myTracks.rating > 0) {
+            if (id == worseSong.id && worseSong.rating > 0) {
                 worseSong.rating --
             }
         }
         this.sortByRating(myTracks)
     }
 
+    this.sortByRating = function(rating){
+        debugger
+        return myTracks.sort(function (a, b){
+            if(a.rating > b.rating){
+                return -1
+            }
+            if(a.rating < b.rating){
+                return 1
+            }
+            if(a.rating == b.rating){
+                return 0
+            }
+        })
+    }
     this.loadTracks = function () {
         var localData = localStorage.getItem("my-tracks");
             if(localData){

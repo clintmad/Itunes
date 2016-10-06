@@ -21,11 +21,13 @@ $('#my-song').on('click', '.remove', function () {
 })
 
 $('#my-song').on('click', '.promote', function () {
-    myTunes.promoteTrack(myTunes.myTracks)
+    myTunes.promoteTrack(this.id)
+    drawSongs(myTunes.getMyTracks(), '#my-song')
 })
 
 $('#my-song').on('click', '.demote', function () {
-    myTunes.demoteTrack(myTunes.myTracks)
+    myTunes.demoteTrack(this.id)
+    drawSongs(myTunes.getMyTracks(), '#my-song')
 })
 
 var iTunesSongList = [];
@@ -53,8 +55,10 @@ function drawSongs(songList, target) {
                                     <h3>${song.title}</h3>
                                     <p>By: ${song.artist}</h2>
                                     <p>Album: ${song.collection}</p>
-                                    <button class="btn promote stroke2" id="${song.id}">Promote</button>
-                                    <button class="btn demote stroke2" id="${song.id}">Demote</button>
+                                    <button class="btn promote stroke2" id="${song.id}">Promote</button>                                    
+                                    <button class="btn demote stroke2" id="${song.id}">Demote</button>                                   
+                                    <p>${song.rating}</p>
+                                       
                                 </div>
                             <div class="col-xs-12 col-md-4">                
                                 <audio controls preload="none">
@@ -94,8 +98,8 @@ function drawSongs(songList, target) {
                 `
 
         elem.append(target == '#song' ? iTunesTemplate : myTemplate)
-        myTunes.saveTracks()
     }
+        myTunes.saveTracks()
 
 
     window.addEventListener("play", function (evt) {
