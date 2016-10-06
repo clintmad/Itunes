@@ -1,29 +1,37 @@
 //Do Not Modify the getMusic function
 
 var myTunes = new MyTunes()
-
+myTunes.loadTracks()
 
 function getMusic() {
     var artist = document.getElementById('artist').value;
     itunes.getMusicByArtist(artist).then(drawSongs);
 }
 
-$('#song').on('click', '.btn-success', function () {
+$('#song').on('click', '.add', function () {
     myTunes.addTrack(this.id)
     drawSongs(myTunes.getMyTracks(), '#my-song')
     drawSongs(myTunes.getTracks(), '#song')
 })
 
-$('#my-song').on('click', '.btn-danger', function () {
+$('#my-song').on('click', '.remove', function () {
     myTunes.removeTrack(this.id)
     drawSongs(myTunes.getMyTracks(), '#my-song')
     drawSongs(myTunes.getTracks(), '#song')
 })
 
+$('#my-song').on('click', '.promote', function () {
+    myTunes.promoteTrack(myTunes.myTracks)
+})
 
-    var iTunesSongList = [];
+$('#my-song').on('click', '.demote', function () {
+    myTunes.demoteTrack(myTunes.myTracks)
+})
 
-function drawSongs(songList, target) {    
+var iTunesSongList = [];
+
+function drawSongs(songList, target) {
+
     if (!target) {
         iTunesSongList = songList
         target = '#song'
@@ -32,10 +40,10 @@ function drawSongs(songList, target) {
     elem.empty()
 
     for (var i = 0; i < songList.length; i++) {
-    var iTunesTemplate = "";
-    var myTemplate = "";
+        var iTunesTemplate = "";
+        var myTemplate = "";
         var song = songList[i]
-        myTemplate += `<div id="foo" class="songText2">
+        myTemplate += `
                         <div class ="text-container">
                             <div class="row card-white">            
                                 <div class="col-xs-12 col-md-2">
@@ -45,21 +53,23 @@ function drawSongs(songList, target) {
                                     <h3>${song.title}</h3>
                                     <p>By: ${song.artist}</h2>
                                     <p>Album: ${song.collection}</p>
+                                    <button class="btn promote stroke2" id="${song.id}">Promote</button>
+                                    <button class="btn demote stroke2" id="${song.id}">Demote</button>
                                 </div>
                             <div class="col-xs-12 col-md-4">                
                                 <audio controls preload="none">
                                     <source src="${song.preview}" type = ""/>
                                 </audio>
-                                <button class="btn-danger" id="${song.id}">Remove from my Tracks</button>
+                                <button class="btn remove stroke2" id="${song.id}">Remove from Playlist</button>
                             </div>
                             <div class="col-xs-12 col-md-1">
                                 <p><a href="#">$${song.price}</a></p>
                             </div>
                         </div>
                     </div>
-                </div>`
+                `
 
-        iTunesTemplate += `<div id="foo-too" class="songText2">
+        iTunesTemplate += `
                         <div class ="text-container">
                             <div class="row card-white">            
                                 <div class="col-xs-12 col-md-2">
@@ -74,22 +84,18 @@ function drawSongs(songList, target) {
                                 <audio controls preload="none">
                                     <source src="${song.preview}" type = ""/>
                                 </audio>
-                                <button class="btn-success" id="${song.id}">Add to my Tracks</button>
+                                <button class="btn add stroke2" id="${song.id}">Add to Playlist</button>
                             </div>
                             <div class="col-xs-12 col-md-1">
                                 <p><a href="#">$${song.price}</a></p>
                             </div>
                         </div>
                     </div>
-                </div>`
+                `
 
         elem.append(target == '#song' ? iTunesTemplate : myTemplate)
+        myTunes.saveTracks()
     }
-
-
-
-
-
 
 
     window.addEventListener("play", function (evt) {
@@ -108,5 +114,5 @@ function drawSongs(songList, target) {
 
 
 
-
 // Still works at this point in time.
+

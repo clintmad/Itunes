@@ -1,5 +1,5 @@
 function MyTunes() {
-    
+
 
 
     var myTracks = []
@@ -14,7 +14,7 @@ function MyTunes() {
     }
 
     this.addTrack = function (id) {
-        
+
         for (var i = 0; i < iTunesSongList.length; i++) {
             var songIWant = iTunesSongList[i];
             if (id == songIWant.id) {
@@ -23,11 +23,10 @@ function MyTunes() {
                 break;
             }
         }
-        console.log(myTracks)
     }
 
     this.removeTrack = function (id) {
-        
+
         for (var i = 0; i < myTracks.length; i++) {
             var oldSong = myTracks[i];
             if (id == oldSong.id) {
@@ -36,22 +35,55 @@ function MyTunes() {
                 break;
             }
         }
-        
-
     }
-    this.promoteTrack = function () {
 
+    this.sortByRating = function(myTracks){
+        debugger
+        return myTracks.sort(function (a, b){
+            if(a.rating > b.rating){
+                return -1
+            }
+            if(a.rating < b.rating){
+                return 1
+            }
+            if(a.rating == b.rating){
+                return 0
+            }
+        })
     }
-    this.demoteTrack = function () {
 
+    this.promoteTrack = function (id) {
+        debugger
+        for (var i = 0; i < myTracks.length; i++) {
+            
+            var goodSong = myTracks[i];
+            if (id == goodSong.id) {
+                goodSong.rating ++
+            }
+        }
+        this.sortByRating(myTracks)
     }
-}
 
-function saveTracks() {
-    myTunes.addTrack(track)
-    return
-}
+    this.demoteTrack = function (id) {
+        debugger
+        for (var i = 0; i < myTracks.length; i++) {
+            
+            var worseSong = myTracks[i];
+            if (id == worseSong.id && myTracks.rating > 0) {
+                worseSong.rating --
+            }
+        }
+        this.sortByRating(myTracks)
+    }
 
-function loadTracks() {
+    this.loadTracks = function () {
+        var localData = localStorage.getItem("my-tracks");
+            if(localData){
+                myTracks = JSON.parse(localData);
+            }
+    }
+    this.saveTracks = function () {
+        localStorage.setItem("my-tracks", JSON.stringify(myTracks));
+    }
 
 }
