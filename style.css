@@ -63,5 +63,7 @@ body{
     display:flex;
     justify-content:flex-center;
 }
-
+.glyphicon{
+    font-size:30px;
+}
 

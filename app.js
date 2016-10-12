@@ -55,9 +55,13 @@ function drawSongs(songList, target) {
                                     <h3>${song.title}</h3>
                                     <p>By: ${song.artist}</h2>
                                     <p>Album: ${song.collection}</p>
-                                    <button class="btn promote stroke2" id="${song.id}">Promote</button>                                    
-                                    <button class="btn demote stroke2" id="${song.id}">Demote</button>                                   
-                                    <p>${song.rating}</p>
+                                    <button class="btn promote stroke2" id="${song.id}">
+                                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                    </button>                                    
+                                    <button class="btn demote stroke2" id="${song.id}">
+                                        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                    </button>                                   
+                                    <p>Rating: ${song.rating}</p>
                                        
                                 </div>
                             <div class="col-xs-12 col-md-4">                
@@ -98,8 +102,8 @@ function drawSongs(songList, target) {
                 `
 
         elem.append(target == '#song' ? iTunesTemplate : myTemplate)
-    }
         myTunes.saveTracks()
+    }
 
 
     window.addEventListener("play", function (evt) {
