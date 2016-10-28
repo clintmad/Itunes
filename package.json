@@ -1,0 +1,30 @@
+{
+  "name": "itunes",
+  "version": "1.0.0",
+  "description": "iTunes Playlists",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clintmad/Itunes.git"
+  },
+  "author": "Clint Madariaga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clintmad/Itunes/issues"
+  },
+  "homepage": "https://github.com/clintmad/Itunes#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "firebase": "^2.4.2",
+    "js-data": "^2.9.0",
+    "js-data-firebase": "^2.1.1",   
+    "js-data-schema": "^1.2.5",     
+    "node-uuid": "^1.4.7",    
+    "socket.io": "^1.5.1"
+  }
+}

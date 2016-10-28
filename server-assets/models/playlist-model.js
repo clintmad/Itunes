@@ -1,0 +1,75 @@
+let dataAdapter = require('./data-adapter'),
+    uuid = dataAdapter.uuid,
+    schemator = dataAdapter.schemator,
+    DS = dataAdapter.DS,
+    formatQuery = dataAdapter.formatQuery;
+
+let Playlist = DS.defineResource({
+    name: 'playlist',
+    endpoint: 'playlists',
+    // filepath: __dirname + '/../data/playlists.db'    
+})
+
+schemator.defineSchema('Playlist', {
+    id: {
+        type: 'string',
+        nullable: false
+    },
+    name: {
+        type: 'string',
+        nullable: false
+    }
+})
+
+function create(playlist, cb) {
+    let playlistObj = {
+        id: uuid.v4(),
+        name: playlist.name,
+        songs: playlist.songs,
+        upVotes: playlist.upVotes,
+        downVotes: playlist.downVotes
+    };
+    let error = schemator.validateSync('Playlist', playlistObj);
+
+    if (error) {
+        return cb(error);
+    }
+    Playlist.create(playlistObj).then(cb).catch(cb)
+}
+
+function editPlaylist(id, input, cb) {
+    Playlist.find(id).then(function (playlist) {
+        playlist.name = input.name
+        playlist.downVotes = input.downVotes,
+            playlist.upVotes = input.upVotes,
+            playlist.songs = input.songs;
+        Playlist.update(playlist.id, playlist)
+            .then(cb)
+            .catch(cb)
+    }).catch(cb)
+}
+
+function removeSong(id, songId, cb) {
+    Playlist.find(id).then(function (playlist) {
+        playlist.songs[songId] = null
+        Playlist.update(playlist.id, playlist)
+            .then(cb)
+            .catch(cb)
+    }).catch(cb)
+}
+
+function getAll(query, cb) {
+    Playlist.findAll({}, formatQuery(query)).then(cb).catch(cb)
+}
+
+function getById(id, query, cb) {
+    Playlist.find(id, formatQuery(query)).then(cb).catch(cb)
+}
+
+module.exports = {
+    create,
+    getAll,
+    getById,
+    editPlaylist,
+    removeSong
+}
