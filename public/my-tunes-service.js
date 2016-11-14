@@ -1,9 +1,6 @@
 function MyTunes() {
 
-
-
-    var myTracks = []
-    
+    var myTracks = []    
 
     this.getTracks = function () {
         return iTunesSongList
@@ -85,5 +82,4 @@ function MyTunes() {
     this.saveTracks = function () {
         localStorage.setItem("my-tracks", JSON.stringify(myTracks));
     }
-
 }

@@ -16,7 +16,8 @@
                     <form class="form-inline text-center">
                         <!--DO NOT MODIFY THE ID OR ONCLICK ATTRIBUTES IN THIS FORM-->
                         <div class="form-group">
-                            <input type="text" class="form-control songText" id="artist" placeholder="Artist Name"  onkeydown="if (event.keyCode == 13) { getMusic(); return false; }"/>
+                            <input type="text" class="form-control songText" id="artist" placeholder="Artist Name" onkeydown="if (event.keyCode == 13) { getMusic(); return false; }"
+                            />
                             <button type="button" class="btn stroke2" id="get-music-button" onclick="getMusic()">Get Music</button>
                         </div>
                     </form>
@@ -26,17 +27,15 @@
     </nav>
     <div class="list container">
         <div id="my-song" class="songText2">
-            
         </div>
     </div>
-    <div class="list container" >
+    <div class="list container">
         <div id="song" class="songText2">
-            
         </div>
     </div>
 </body>
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-    <script src="itunes-service.js"></script>
-    <script src="my-tunes-service.js"></script>
-    <script src="app.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="itunes-service.js"></script>
+<script src="my-tunes-service.js"></script>
+<script src="app.js"></script>
 </html>

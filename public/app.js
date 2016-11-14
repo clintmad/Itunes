@@ -76,7 +76,6 @@ function drawSongs(songList, target) {
                         </div>
                     </div>
                 `
-
         iTunesTemplate += `
                         <div class ="text-container">
                             <div class="row card-white">            
@@ -105,7 +104,6 @@ function drawSongs(songList, target) {
         myTunes.saveTracks()
     }
 
-
     window.addEventListener("play", function (evt) {
         if (window.$_currentlyPlaying && window.$_currentlyPlaying != evt.target) {
             window.$_currentlyPlaying.pause();
@@ -113,14 +111,3 @@ function drawSongs(songList, target) {
         window.$_currentlyPlaying = evt.target;
     }, true);
 }
-
-
-
-
-
-
-
-
-
-// Still works at this point in time.
-
